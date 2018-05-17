@@ -4,7 +4,7 @@ public class Admin {
 	public int id;
 	public String name;
 	public String phone;
-	public String t1;//1234
+	public String t1;//12345
 	
 	public Admin(int id, String name, String phone) {
 		super();
