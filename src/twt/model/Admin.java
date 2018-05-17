@@ -4,11 +4,13 @@ public class Admin {
 	public int id;
 	public String name;
 	public String phone;
+	public String t1;//111
+	
 	public Admin(int id, String name, String phone) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.phone = phone;//123
+		this.phone = phone;
 	}
 	public int getId() {
 		return id;
