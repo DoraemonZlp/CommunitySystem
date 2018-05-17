@@ -8,7 +8,7 @@ public class Admin {
 		super();
 		this.id = id;
 		this.name = name;
-		this.phone = phone;//456798
+		this.phone = phone;//4567
 	}
 	public int getId() {
 		return id;
