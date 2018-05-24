@@ -25,5 +25,8 @@
 		<mapping resource="twt/model/Repair.hbm.xml"/>
 		<mapping resource="twt/model/Room.hbm.xml"/>
 		<mapping resource="twt/model/UserPassRecord.hbm.xml"/>
+		
+		<mapping resource="twt/model/LoginAdmin.hbm.xml"/>
+		<mapping resource="twt/model/LoginHousehold.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,5 +1,5 @@
 package twt.model;
-// Generated 2018-5-24 10:57:55 by Hibernate Tools 3.5.0.Final
+// Generated 2018-5-24 14:12:58 by Hibernate Tools 3.5.0.Final
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;

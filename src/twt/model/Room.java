@@ -1,5 +1,5 @@
 package twt.model;
-// Generated 2018-5-24 10:57:55 by Hibernate Tools 3.5.0.Final
+// Generated 2018-5-24 14:12:58 by Hibernate Tools 3.5.0.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -26,8 +26,9 @@ public class Room implements java.io.Serializable {
 	private int layer;
 	private int room;
 	private Set<Household> households = new HashSet<Household>(0);
+	private Set<UserPassRecord> userPassRecordsForHouse = new HashSet<UserPassRecord>(0);
 	private Set<Repair> repairs = new HashSet<Repair>(0);
-	private Set<UserPassRecord> userPassRecords = new HashSet<UserPassRecord>(0);
+	private Set<UserPassRecord> userPassRecordsForHouse_1 = new HashSet<UserPassRecord>(0);
 	private Set<Expense> expenses = new HashSet<Expense>(0);
 
 	public Room() {
@@ -40,15 +41,17 @@ public class Room implements java.io.Serializable {
 		this.room = room;
 	}
 
-	public Room(int house, int unit, int layer, int room, Set<Household> households, Set<Repair> repairs,
-			Set<UserPassRecord> userPassRecords, Set<Expense> expenses) {
+	public Room(int house, int unit, int layer, int room, Set<Household> households,
+			Set<UserPassRecord> userPassRecordsForHouse, Set<Repair> repairs,
+			Set<UserPassRecord> userPassRecordsForHouse_1, Set<Expense> expenses) {
 		this.house = house;
 		this.unit = unit;
 		this.layer = layer;
 		this.room = room;
 		this.households = households;
+		this.userPassRecordsForHouse = userPassRecordsForHouse;
 		this.repairs = repairs;
-		this.userPassRecords = userPassRecords;
+		this.userPassRecordsForHouse_1 = userPassRecordsForHouse_1;
 		this.expenses = expenses;
 	}
 
@@ -109,6 +112,15 @@ public class Room implements java.io.Serializable {
 		this.households = households;
 	}
 
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "roomByHouse")
+	public Set<UserPassRecord> getUserPassRecordsForHouse() {
+		return this.userPassRecordsForHouse;
+	}
+
+	public void setUserPassRecordsForHouse(Set<UserPassRecord> userPassRecordsForHouse) {
+		this.userPassRecordsForHouse = userPassRecordsForHouse;
+	}
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "room")
 	public Set<Repair> getRepairs() {
 		return this.repairs;
@@ -118,13 +130,13 @@ public class Room implements java.io.Serializable {
 		this.repairs = repairs;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "room")
-	public Set<UserPassRecord> getUserPassRecords() {
-		return this.userPassRecords;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "roomByHouse")
+	public Set<UserPassRecord> getUserPassRecordsForHouse_1() {
+		return this.userPassRecordsForHouse_1;
 	}
 
-	public void setUserPassRecords(Set<UserPassRecord> userPassRecords) {
-		this.userPassRecords = userPassRecords;
+	public void setUserPassRecordsForHouse_1(Set<UserPassRecord> userPassRecordsForHouse_1) {
+		this.userPassRecordsForHouse_1 = userPassRecordsForHouse_1;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "room")
