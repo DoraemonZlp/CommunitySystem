@@ -3,8 +3,8 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2018-5-24 10:57:55 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="model.UserPassRecord" table="UserPassRecord" catalog="CommunitySystem">
-        <composite-id name="id" class="model.UserPassRecordId">
+    <class name="twt.model.UserPassRecord" table="UserPassRecord" catalog="CommunitySystem">
+        <composite-id name="id" class="twt.model.UserPassRecordId">
             <key-property name="id" type="int">
                 <column name="id" />
             </key-property>
@@ -12,10 +12,10 @@
                 <column name="time" length="19" />
             </key-property>
         </composite-id>
-        <many-to-one name="household" class="model.Household" update="false" insert="false" fetch="select">
+        <many-to-one name="household" class="twt.model.Household" update="false" insert="false" fetch="select">
             <column name="id" not-null="true" />
         </many-to-one>
-        <many-to-one name="room" class="model.Room" fetch="select">
+        <many-to-one name="room" class="twt.model.Room" fetch="select">
             <column name="house" not-null="true" />
         </many-to-one>
     </class>

@@ -8,7 +8,22 @@
         <property name="hibernate.connection.password">123456</property>
         <property name="hibernate.connection.url">jdbc:mysql://123.207.91.166:3306/CommunitySystem</property>
         <property name="hibernate.connection.username">cha</property>
-        <property name="hibernate.default_schema">cha</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="show_sql">true</property>
+        <property name="hbm2ddl.auto">update</property>
+        <mapping resource="twt/model/Admin.hbm.xml"/>
+		<mapping resource="twt/model/Announcement.hbm.xml"/>
+		<mapping resource="twt/model/Car.hbm.xml"/>
+		<mapping resource="twt/model/CarPassRecord.hbm.xml"/>
+		<mapping resource="twt/model/Comment.hbm.xml"/>
+		<mapping resource="twt/model/CommentReply.hbm.xml"/>
+		<mapping resource="twt/model/Expense.hbm.xml"/>
+		<mapping resource="twt/model/Express.hbm.xml"/>
+		<mapping resource="twt/model/Guard.hbm.xml"/>
+		<mapping resource="twt/model/Household.hbm.xml"/>
+		<mapping resource="twt/model/Login.hbm.xml"/>
+		<mapping resource="twt/model/Repair.hbm.xml"/>
+		<mapping resource="twt/model/Room.hbm.xml"/>
+		<mapping resource="twt/model/UserPassRecord.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

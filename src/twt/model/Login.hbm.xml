@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2018-5-24 10:57:55 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="model.Login" table="Login" catalog="CommunitySystem">
+    <class name="twt.model.Login" table="Login" catalog="CommunitySystem">
         <id name="phone" type="string">
             <column name="phone" length="11" />
             <generator class="assigned" />

@@ -3,14 +3,14 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2018-5-24 10:57:55 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="model.CommentReply" table="CommentReply" catalog="CommunitySystem">
+    <class name="twt.model.CommentReply" table="CommentReply" catalog="CommunitySystem">
         <id name="id" type="int">
             <column name="id" />
             <generator class="foreign">
                 <param name="property">comment</param>
             </generator>
         </id>
-        <one-to-one name="comment" class="model.Comment" constrained="true"></one-to-one>
+        <one-to-one name="comment" class="twt.model.Comment" constrained="true"></one-to-one>
         <property name="commentid" type="int">
             <column name="commentid" not-null="true" />
         </property>

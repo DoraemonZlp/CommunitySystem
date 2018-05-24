@@ -3,8 +3,8 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2018-5-24 10:57:55 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="model.Expense" table="Expense" catalog="CommunitySystem">
-        <composite-id name="id" class="model.ExpenseId">
+    <class name="twt.model.Expense" table="Expense" catalog="CommunitySystem">
+        <composite-id name="id" class="twt.model.ExpenseId">
             <key-property name="id" type="int">
                 <column name="id" />
             </key-property>
@@ -12,7 +12,7 @@
                 <column name="yearmonth" />
             </key-property>
         </composite-id>
-        <many-to-one name="room" class="model.Room" update="false" insert="false" fetch="select">
+        <many-to-one name="room" class="twt.model.Room" update="false" insert="false" fetch="select">
             <column name="id" not-null="true" />
         </many-to-one>
         <property name="water" type="int">
