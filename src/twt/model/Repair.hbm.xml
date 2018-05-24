@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-5-24 10:57:55 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="model.Repair" table="Repair" catalog="CommunitySystem">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="room" class="model.Room" fetch="select">
+            <column name="roomid" not-null="true" />
+        </many-to-one>
+        <property name="content" type="string">
+            <column name="content" length="2048" not-null="true" />
+        </property>
+        <property name="isfixed" type="int">
+            <column name="isfixed" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

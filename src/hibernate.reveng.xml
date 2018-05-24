@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="CommunitySystem" match-name="Admin"/>
+  <table-filter match-catalog="CommunitySystem" match-name="Announcement"/>
+  <table-filter match-catalog="CommunitySystem" match-name="Car"/>
+  <table-filter match-catalog="CommunitySystem" match-name="CarPassRecord"/>
+  <table-filter match-catalog="CommunitySystem" match-name="Comment"/>
+  <table-filter match-catalog="CommunitySystem" match-name="CommentReply"/>
+  <table-filter match-catalog="CommunitySystem" match-name="Expense"/>
+  <table-filter match-catalog="CommunitySystem" match-name="Express"/>
+  <table-filter match-catalog="CommunitySystem" match-name="Guard"/>
+  <table-filter match-catalog="CommunitySystem" match-name="Household"/>
+  <table-filter match-catalog="CommunitySystem" match-name="Living"/>
+  <table-filter match-catalog="CommunitySystem" match-name="Login"/>
+  <table-filter match-catalog="CommunitySystem" match-name="Repair"/>
+  <table-filter match-catalog="CommunitySystem" match-name="Room"/>
+  <table-filter match-catalog="CommunitySystem" match-name="UserPassRecord"/>
+</hibernate-reverse-engineering>
