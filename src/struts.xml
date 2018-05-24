@@ -4,7 +4,7 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<package name="default" namespace="/" extends="struts-default">
-    <action name="user" class="twt.controller.service.LoginAction" method="execute">
+    <action name="login" class="twt.controller.service.LoginAction" method="execute">
     	<result name="ok">/ok.html</result>
     	<result name="error">/error.html</result>
      </action>
