@@ -30,5 +30,6 @@
 		
 		<mapping resource="twt/model/LoginAdmin.hbm.xml"/>
 		<mapping resource="twt/model/LoginHousehold.hbm.xml"/>
+		<mapping resource="twt/model/AnnouncementAdmin.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

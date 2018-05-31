@@ -24,4 +24,10 @@ public interface IExpress {
 	//修改快递
 	public int UpdateExpress(int id,Express exp);
 	
+	//提交操作
+	public void Commit();
+	
+	//关闭连接
+	public void Close();
+	
 }

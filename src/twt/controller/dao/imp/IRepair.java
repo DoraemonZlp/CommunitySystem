@@ -16,4 +16,10 @@ public interface IRepair {
 	//将某条报修信息设置为已修复
 	public int RepairRepair(int id);
 	
+	//提交操作
+	public void Commit();
+	
+	//关闭连接
+	public void Close();
+	
 }
