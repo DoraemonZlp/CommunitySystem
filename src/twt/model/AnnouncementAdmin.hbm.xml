@@ -3,16 +3,16 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2018-5-31 11:25:56 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="twt.model.LoginHousehold" table="Login_Household" catalog="CommunitySystem">
-        <composite-id name="id" class="twt.model.LoginHouseholdId">
+    <class name="twt.model.AnnouncementAdmin" table="Announcement_Admin" catalog="CommunitySystem">
+        <composite-id name="id" class="twt.model.AnnouncementAdminId">
             <key-property name="name" type="string">
                 <column name="name" />
             </key-property>
-            <key-property name="phone" type="string">
-                <column name="phone" length="11" />
+            <key-property name="time" type="timestamp">
+                <column name="time" length="19" />
             </key-property>
-            <key-property name="password" type="string">
-                <column name="password" />
+            <key-property name="content" type="string">
+                <column name="content" length="2048" />
             </key-property>
         </composite-id>
     </class>

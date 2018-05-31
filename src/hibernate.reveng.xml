@@ -29,4 +29,7 @@
 	<table-filter match-name="Login_Household"
 		match-catalog="CommunitySystem">
 	</table-filter>
+	<table-filter match-name="Announcement_Admin"
+		match-catalog="CommunitySystem">
+	</table-filter>
 </hibernate-reverse-engineering>

@@ -1,11 +1,15 @@
 package twt.model;
-// Generated 2018-5-24 14:12:58 by Hibernate Tools 3.5.0.Final
+// Generated 2018-5-31 11:25:56 by Hibernate Tools 3.5.0.Final
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -18,6 +22,7 @@ public class Admin implements java.io.Serializable {
 	private Integer id;
 	private String name;
 	private String phone;
+	private Set<Announcement> announcements = new HashSet<Announcement>(0);
 
 	public Admin() {
 	}
@@ -25,6 +30,12 @@ public class Admin implements java.io.Serializable {
 	public Admin(String name, String phone) {
 		this.name = name;
 		this.phone = phone;
+	}
+
+	public Admin(String name, String phone, Set<Announcement> announcements) {
+		this.name = name;
+		this.phone = phone;
+		this.announcements = announcements;
 	}
 
 	@Id
@@ -55,6 +66,15 @@ public class Admin implements java.io.Serializable {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "admin")
+	public Set<Announcement> getAnnouncements() {
+		return this.announcements;
+	}
+
+	public void setAnnouncements(Set<Announcement> announcements) {
+		this.announcements = announcements;
 	}
 
 }

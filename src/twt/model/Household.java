@@ -1,5 +1,5 @@
 package twt.model;
-// Generated 2018-5-24 14:12:58 by Hibernate Tools 3.5.0.Final
+// Generated 2018-5-31 11:25:56 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -34,7 +34,6 @@ public class Household implements java.io.Serializable {
 	private Set<Express> expresses = new HashSet<Express>(0);
 	private Set<Room> rooms = new HashSet<Room>(0);
 	private Set<UserPassRecord> userPassRecords = new HashSet<UserPassRecord>(0);
-	private Set<Announcement> announcements = new HashSet<Announcement>(0);
 
 	public Household() {
 	}
@@ -46,8 +45,7 @@ public class Household implements java.io.Serializable {
 	}
 
 	public Household(String name, String phone, Integer sex, Date birthday, int type, Set<Comment> comments,
-			Set<Car> cars, Set<Express> expresses, Set<Room> rooms, Set<UserPassRecord> userPassRecords,
-			Set<Announcement> announcements) {
+			Set<Car> cars, Set<Express> expresses, Set<Room> rooms, Set<UserPassRecord> userPassRecords) {
 		this.name = name;
 		this.phone = phone;
 		this.sex = sex;
@@ -58,7 +56,6 @@ public class Household implements java.io.Serializable {
 		this.expresses = expresses;
 		this.rooms = rooms;
 		this.userPassRecords = userPassRecords;
-		this.announcements = announcements;
 	}
 
 	@Id
@@ -162,15 +159,6 @@ public class Household implements java.io.Serializable {
 
 	public void setUserPassRecords(Set<UserPassRecord> userPassRecords) {
 		this.userPassRecords = userPassRecords;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "household")
-	public Set<Announcement> getAnnouncements() {
-		return this.announcements;
-	}
-
-	public void setAnnouncements(Set<Announcement> announcements) {
-		this.announcements = announcements;
 	}
 
 }
