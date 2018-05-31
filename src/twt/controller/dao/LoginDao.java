@@ -21,7 +21,7 @@ import twt.model.LoginHouseholdId;
 
 public class LoginDao implements ILoginDao {
 	Session session=null;
-	Transaction trans=null;
+	//Transaction trans=null;
 	SessionFactory sessionFactory=null;
 	void init(){
 		Configuration configuration = new Configuration();
@@ -37,7 +37,7 @@ public class LoginDao implements ILoginDao {
 		// 打开Session
 		session = sessionFactory.openSession();
 		// 开始一个事务
-		trans = session.beginTransaction();
+		//trans = session.beginTransaction();
 	}
 	@Override
 	public int Login(String phone,String pwd) {
@@ -60,6 +60,7 @@ public class LoginDao implements ILoginDao {
 		if(households.size()>0) {
 			r= 1;
 		}
+		//trans.commit();
 		sessionFactory.close();
 		return r;
 	}

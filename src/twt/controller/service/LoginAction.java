@@ -26,8 +26,7 @@ public class LoginAction implements Action {
 	@Override
 	public String execute() {
 		String res="error";
-		System.out.println(getUserName());
-		System.out.println(getPassword());
+		System.out.println(getUserName()+":"+getPassword());
 		if(getPassword().equals(getUserName())) {
 			res="ok";
 		}else {
