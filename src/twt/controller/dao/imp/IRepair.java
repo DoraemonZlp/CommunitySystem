@@ -1,10 +1,12 @@
 package twt.controller.dao.imp;
 
+import java.util.List;
+
 import twt.model.Repair;
 
 public interface IRepair {
 	
-	//发布报修信息
+	//发布报修信息,返回保修id
 	public int PublishRepair(Repair re);
 	
 	//修改报修信息
@@ -16,10 +18,7 @@ public interface IRepair {
 	//将某条报修信息设置为已修复
 	public int RepairRepair(int id);
 	
-	//提交操作
-	public void Commit();
-	
-	//关闭连接
-	public void Close();
+	//查看前n条报修信息,-1为所有报修信息
+	public List<Repair> QueryRepair(int n);
 	
 }

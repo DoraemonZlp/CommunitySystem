@@ -6,7 +6,7 @@ import twt.model.Announcement;
 
 public interface IAnnouncement {
 	
-	//发布公告
+	//发布公告,返回公告id
 	public int PublishAnnouncement(Announcement an);
 	
 	//查看前n条公告,-1为所有公告
