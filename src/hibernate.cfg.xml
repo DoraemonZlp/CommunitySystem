@@ -10,7 +10,9 @@
         <property name="hibernate.connection.username">cha</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
         <property name="hbm2ddl.auto">update</property>
+        
         <mapping resource="twt/model/Admin.hbm.xml"/>
 		<mapping resource="twt/model/Announcement.hbm.xml"/>
 		<mapping resource="twt/model/Car.hbm.xml"/>
@@ -28,5 +30,6 @@
 		
 		<mapping resource="twt/model/LoginAdmin.hbm.xml"/>
 		<mapping resource="twt/model/LoginHousehold.hbm.xml"/>
+		<mapping resource="twt/model/AnnouncementAdmin.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

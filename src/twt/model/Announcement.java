@@ -1,5 +1,5 @@
 package twt.model;
-// Generated 2018-5-24 14:12:58 by Hibernate Tools 3.5.0.Final
+// Generated 2018-5-31 11:25:56 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -22,15 +22,15 @@ import javax.persistence.TemporalType;
 public class Announcement implements java.io.Serializable {
 
 	private Integer id;
-	private Household household;
+	private Admin admin;
 	private Date time;
 	private String content;
 
 	public Announcement() {
 	}
 
-	public Announcement(Household household, Date time, String content) {
-		this.household = household;
+	public Announcement(Admin admin, Date time, String content) {
+		this.admin = admin;
 		this.time = time;
 		this.content = content;
 	}
@@ -49,12 +49,12 @@ public class Announcement implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "publisher", nullable = false)
-	public Household getHousehold() {
-		return this.household;
+	public Admin getAdmin() {
+		return this.admin;
 	}
 
-	public void setHousehold(Household household) {
-		this.household = household;
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
