@@ -2,6 +2,7 @@ package twt.controller.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -9,7 +10,6 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 import twt.controller.dao.imp.IAnnouncement;
-import twt.controller.dao.imp.IManager;
 import twt.model.Announcement;
 
 public class AnnouncementDao implements IAnnouncement{
@@ -38,27 +38,39 @@ public class AnnouncementDao implements IAnnouncement{
 	@Override
 	public int PublishAnnouncement(Announcement an) {
 		trans = session.beginTransaction();
-		int r=-1;
 		session.save(an);
+		trans.commit();
+		return 1;
+	}
+
+	@Override
+	public List<Announcement> QueryAnnouncement(int n) {
+		//trans = session.beginTransaction();
+		Query query = session.createQuery("from Announcement");
+		//query.setParameter(0, n);
+		List<Announcement> ans =query.setMaxResults(n).list();
+		//trans.commit();
+		return ans;
+	}
+
+	@Override
+	public int UpdateAnnouncement(int id, Announcement an) {
+		trans = session.beginTransaction();
+		Announcement oan=(Announcement) session.get(Announcement.class, id);
+		//System.out.println(oan.getContent());
+		oan.setAdmin(an.getAdmin());
+		oan.setContent(an.getContent());
+		oan.setTime(an.getTime());
+		session.update(oan);
 		trans.commit();
 		return 0;
 	}
 
 	@Override
-	public List<Announcement> QueryAnnouncement(int n) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int UpdateAnnouncement(int id, Announcement an) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public int DeleteAnnouncement(int id) {
-		// TODO Auto-generated method stub
+		trans = session.beginTransaction();
+		session.delete(session.get(Announcement.class, id));
+		trans.commit();
 		return 0;
 	}
 }
