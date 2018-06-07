@@ -14,9 +14,6 @@ public class UnitTest {
 		announcement.PublishAnnouncement(new Announcement(ad,new java.util.Date(),"测试002"));
 		announcement.PublishAnnouncement(new Announcement(ad,new java.util.Date(),"测试003"));
 		announcement.PublishAnnouncement(new Announcement(ad,new java.util.Date(),"测试004"));
-//		MyManager myManager=new MyManager();
-//		new Thread(myManager, "线程1").start();
-//		myManager.AddMgr(announcement);
 	}
 	
 	public static void main(String[] args) {
