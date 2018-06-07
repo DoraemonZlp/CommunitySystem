@@ -12,7 +12,7 @@ import twt.controller.dao.imp.IAnnouncement;
 import twt.controller.dao.imp.IManager;
 import twt.model.Announcement;
 
-public class AnnouncementDao implements IAnnouncement,IManager {
+public class AnnouncementDao implements IAnnouncement{
 	Session session=null;
 	Transaction trans=null;
 	SessionFactory sessionFactory=null;
@@ -30,16 +30,17 @@ public class AnnouncementDao implements IAnnouncement,IManager {
 		// 打开Session
 		session = sessionFactory.openSession();
 		// 开始一个事务
-		trans = session.beginTransaction();
+		//trans = session.beginTransaction();
 	}
 	public AnnouncementDao() {
 		init();
 	}
 	@Override
 	public int PublishAnnouncement(Announcement an) {
+		trans = session.beginTransaction();
 		int r=-1;
 		session.save(an);
-		// TODO Auto-generated method stub
+		trans.commit();
 		return 0;
 	}
 
@@ -59,15 +60,5 @@ public class AnnouncementDao implements IAnnouncement,IManager {
 	public int DeleteAnnouncement(int id) {
 		// TODO Auto-generated method stub
 		return 0;
-	}
-	
-	@Override
-	public void Close() {
-		sessionFactory.close();
-	}
-	
-	@Override
-	public void Commit() {
-		trans.commit();
 	}
 }
