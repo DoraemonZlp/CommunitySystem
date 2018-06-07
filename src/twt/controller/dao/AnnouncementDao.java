@@ -13,10 +13,16 @@ public class AnnouncementDao implements IAnnouncement{
 	}
 	@Override
 	public int PublishAnnouncement(Announcement an) {
+		int r=0;
 		MyGlobal.begintrans();
-		MyGlobal.session.save(an);
-		MyGlobal.commit();
-		return an.getId();
+		try {
+			MyGlobal.session.save(an);
+			MyGlobal.commit();
+			r=an.getId();
+		} catch (Exception e) {
+			MyGlobal.rollback();
+		}
+		return r;
 	}
 
 	@Override
@@ -36,22 +42,34 @@ public class AnnouncementDao implements IAnnouncement{
 
 	@Override
 	public int UpdateAnnouncement(int id, Announcement an) {
+		int r=0;
 		MyGlobal.begintrans();
-		Announcement oan=(Announcement) MyGlobal.session.get(Announcement.class, id);
-		//System.out.println(oan.getContent());
-		oan.setAdmin(an.getAdmin());
-		oan.setContent(an.getContent());
-		oan.setTime(an.getTime());
-		MyGlobal.session.update(oan);
-		MyGlobal.commit();
-		return 0;
+		try {
+			Announcement oan=(Announcement) MyGlobal.session.get(Announcement.class, id);
+			//System.out.println(oan.getContent());
+			oan.setAdmin(an.getAdmin());
+			oan.setContent(an.getContent());
+			oan.setTime(an.getTime());
+			MyGlobal.session.update(oan);
+			MyGlobal.commit();
+			r=1;
+		} catch (Exception e) {
+			MyGlobal.rollback();
+		}
+		return r;
 	}
 
 	@Override
 	public int DeleteAnnouncement(int id) {
+		int r=0;
 		MyGlobal.begintrans();
-		MyGlobal.session.delete(MyGlobal.session.get(Announcement.class, id));
-		MyGlobal.commit();
-		return 0;
+		try {
+			MyGlobal.session.delete(MyGlobal.session.get(Announcement.class, id));
+			MyGlobal.commit();
+			r=1;
+		} catch (Exception e) {
+			MyGlobal.rollback();
+		}
+		return r;
 	}
 }

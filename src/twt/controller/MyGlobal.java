@@ -35,4 +35,7 @@ public class MyGlobal {
 	public static void commit() {
 		trans.commit();
 	}
+	public static void rollback() {
+		trans.rollback();
+	}
 }
