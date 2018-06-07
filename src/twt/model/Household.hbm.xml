@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-5-24 14:12:59 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="twt.model.Household" table="Household" catalog="CommunitySystem">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" not-null="true" />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" length="11" not-null="true" />
+        </property>
+        <property name="sex" type="java.lang.Integer">
+            <column name="sex" />
+        </property>
+        <property name="birthday" type="timestamp">
+            <column name="birthday" length="19" />
+        </property>
+        <property name="type" type="int">
+            <column name="type" not-null="true" />
+        </property>
+        <set name="comments" table="Comment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="household" not-null="true" />
+            </key>
+            <one-to-many class="twt.model.Comment" />
+        </set>
+        <set name="cars" table="Car" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="owner" not-null="true" />
+            </key>
+            <one-to-many class="twt.model.Car" />
+        </set>
+        <set name="expresses" table="Express" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="phone" not-null="true" />
+            </key>
+            <one-to-many class="twt.model.Express" />
+        </set>
+        <set name="rooms" table="Living" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="household" not-null="true" />
+            </key>
+            <many-to-many entity-name="twt.model.Room">
+                <column name="id" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="userPassRecords" table="UserPassRecord" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id" not-null="true" />
+            </key>
+            <one-to-many class="twt.model.UserPassRecord" />
+        </set>
+        <set name="announcements" table="Announcement" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="publisher" not-null="true" />
+            </key>
+            <one-to-many class="twt.model.Announcement" />
+        </set>
+    </class>
+</hibernate-mapping>

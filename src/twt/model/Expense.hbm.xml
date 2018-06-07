@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-5-24 14:12:59 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="twt.model.Expense" table="Expense" catalog="CommunitySystem">
+        <composite-id name="id" class="twt.model.ExpenseId">
+            <key-property name="id" type="int">
+                <column name="id" />
+            </key-property>
+            <key-property name="yearmonth" type="int">
+                <column name="yearmonth" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="room" class="twt.model.Room" update="false" insert="false" fetch="select">
+            <column name="id" not-null="true" />
+        </many-to-one>
+        <property name="water" type="int">
+            <column name="water" not-null="true" />
+        </property>
+        <property name="watered" type="int">
+            <column name="watered" not-null="true" />
+        </property>
+        <property name="electricity" type="int">
+            <column name="electricity" not-null="true" />
+        </property>
+        <property name="electricityed" type="int">
+            <column name="electricityed" not-null="true" />
+        </property>
+        <property name="gas" type="int">
+            <column name="gas" not-null="true" />
+        </property>
+        <property name="gased" type="int">
+            <column name="gased" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

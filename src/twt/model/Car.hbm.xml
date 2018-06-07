@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-5-24 14:12:59 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="twt.model.Car" table="Car" catalog="CommunitySystem">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="household" class="twt.model.Household" fetch="select">
+            <column name="owner" not-null="true" />
+        </many-to-one>
+        <property name="number" type="string">
+            <column name="number" length="7" not-null="true" />
+        </property>
+        <one-to-one name="carPassRecord" class="twt.model.CarPassRecord"></one-to-one>
+    </class>
+</hibernate-mapping>

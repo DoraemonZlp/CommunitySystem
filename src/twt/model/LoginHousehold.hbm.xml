@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-5-24 14:12:59 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="twt.model.LoginHousehold" table="Login_Household" catalog="CommunitySystem">
+        <composite-id name="id" class="twt.model.LoginHouseholdId">
+            <key-property name="name" type="string">
+                <column name="name" />
+            </key-property>
+            <key-property name="phone" type="string">
+                <column name="phone" length="11" />
+            </key-property>
+            <key-property name="password" type="string">
+                <column name="password" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>
