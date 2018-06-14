@@ -38,9 +38,11 @@ public class Household implements java.io.Serializable {
 	public Household() {
 	}
 
-	public Household(String name, String phone, int type) {
+	public Household(String name, String phone,Integer sex, Date birthday, int type) {
 		this.name = name;
 		this.phone = phone;
+		this.sex=sex;
+		this.birthday=birthday;
 		this.type = type;
 	}
 
