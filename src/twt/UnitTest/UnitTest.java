@@ -51,10 +51,15 @@ public class UnitTest {
 		IExpress exp=new ExpressDao();
 		Household hh=new Household();
 		//hh.setId(1);
-		hh.setName("");
-		hh.setType(1);
 		hh.setPhone("13200000002");
-		exp.AddExpress(new Express(hh,"123456798",new Date(),0));
+		//exp.AddExpress(new Express(hh,"123456798",new Date(),0));
+		//exp.DeleteExpress(18);
+		//exp.UpdateExpress(19, new Express(hh,"88888",new Date(),0));
+		//exp.PickExpress(20);
+		List<Express>res=exp.QueryUnpickedExpress(-1);
+		for(Express r:res) {
+			System.out.println(r.getNumber());
+		}
 	}
 	
 	public static void main(String[] args) {
