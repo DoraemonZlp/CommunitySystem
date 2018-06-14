@@ -13,10 +13,10 @@ public interface IExpense {
 	public int AddExpense(Expense exp);
 	
 	//修改账单信息
-	public int UpdateExpense(int roomid,Expense exp);
+	public int UpdateExpense(int roomid,int yearmonth,Expense exp);
 	
 	//删除账单信息
-	public int DeleteExpense(int roomid);
+	public int DeleteExpense(int roomid,int yearmonth);
 	
 	//查询某房间所有账单信息
 	public List<Expense> QueryExpense(int roomid);
@@ -25,12 +25,12 @@ public interface IExpense {
 	public List<Expense> QueryExpense();
 	
 	//交水费
-	public int Paywater(int roomid,int money);
+	public int Paywater(int roomid,int yearmonth,int money);
 	
 	//交电费
-	public int Payelectricity(int roomid,int money);
+	public int Payelectricity(int roomid,int yearmonth,int money);
 	
 	//交煤气费
-	public int Payelgas(int roomid,int money);
+	public int Payelgas(int roomid,int yearmonth,int money);
 	
 }

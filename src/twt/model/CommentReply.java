@@ -1,5 +1,5 @@
 package twt.model;
-// Generated 2018-5-31 11:25:56 by Hibernate Tools 3.5.0.Final
+// Generated 2018-6-14 13:25:42 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 import javax.persistence.Column;

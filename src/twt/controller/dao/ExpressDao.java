@@ -23,7 +23,7 @@ import twt.model.Household;
 public class ExpressDao implements IExpress {
 	
 	public ExpressDao() {
-		MyGlobal.init();
+		//MyGlobal.init();
 	}
 
 	@Override
