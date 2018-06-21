@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2018-6-14 13:25:42 by Hibernate Tools 3.5.0.Final -->
+<!-- Generated 2018-6-21 11:26:05 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="twt.model.Admin" table="Admin" catalog="CommunitySystem">
         <id name="id" type="java.lang.Integer">
@@ -19,6 +19,12 @@
                 <column name="publisher" not-null="true" />
             </key>
             <one-to-many class="twt.model.Announcement" />
+        </set>
+        <set name="commentReplies" table="CommentReply" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="admin" not-null="true" />
+            </key>
+            <one-to-many class="twt.model.CommentReply" />
         </set>
     </class>
 </hibernate-mapping>

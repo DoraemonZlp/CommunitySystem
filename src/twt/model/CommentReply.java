@@ -1,5 +1,5 @@
 package twt.model;
-// Generated 2018-6-14 13:25:42 by Hibernate Tools 3.5.0.Final
+// Generated 2018-6-21 11:26:04 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -24,20 +26,22 @@ public class CommentReply implements java.io.Serializable {
 
 	private int id;
 	private Comment comment;
+	private Admin admin;
 	private int commentid;
-	private int household;
 	private Date time;
 	private String content;
+	private int household;
 
 	public CommentReply() {
 	}
 
-	public CommentReply(Comment comment, int commentid, int household, Date time, String content) {
+	public CommentReply(Comment comment, Admin admin, int commentid, Date time, String content, int household) {
 		this.comment = comment;
+		this.admin = admin;
 		this.commentid = commentid;
-		this.household = household;
 		this.time = time;
 		this.content = content;
+		this.household = household;
 	}
 
 	@GenericGenerator(name = "generator", strategy = "foreign", parameters = @Parameter(name = "property", value = "comment"))
@@ -63,6 +67,16 @@ public class CommentReply implements java.io.Serializable {
 		this.comment = comment;
 	}
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "admin", nullable = false)
+	public Admin getAdmin() {
+		return this.admin;
+	}
+
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
+	}
+
 	@Column(name = "commentid", nullable = false)
 	public int getCommentid() {
 		return this.commentid;
@@ -70,15 +84,6 @@ public class CommentReply implements java.io.Serializable {
 
 	public void setCommentid(int commentid) {
 		this.commentid = commentid;
-	}
-
-	@Column(name = "household", nullable = false)
-	public int getHousehold() {
-		return this.household;
-	}
-
-	public void setHousehold(int household) {
-		this.household = household;
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -98,6 +103,15 @@ public class CommentReply implements java.io.Serializable {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	@Column(name = "household", nullable = false)
+	public int getHousehold() {
+		return this.household;
+	}
+
+	public void setHousehold(int household) {
+		this.household = household;
 	}
 
 }
