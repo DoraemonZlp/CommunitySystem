@@ -1,5 +1,5 @@
 package twt.model;
-// Generated 2018-5-31 11:25:56 by Hibernate Tools 3.5.0.Final
+// Generated 2018-6-21 11:26:04 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -23,20 +25,28 @@ import org.hibernate.annotations.Parameter;
 public class CarPassRecord implements java.io.Serializable {
 
 	private int id;
-	private Car car;
+	private Car carByCarPassRecord;
+	private Car carById;
 	private Date time;
 	private int door;
 
 	public CarPassRecord() {
 	}
 
-	public CarPassRecord(Car car, Date time, int door) {
-		this.car = car;
+	public CarPassRecord(Car carById, Date time, int door) {
+		this.carById = carById;
 		this.time = time;
 		this.door = door;
 	}
 
-	@GenericGenerator(name = "generator", strategy = "foreign", parameters = @Parameter(name = "property", value = "car"))
+	public CarPassRecord(Car carByCarPassRecord, Car carById, Date time, int door) {
+		this.carByCarPassRecord = carByCarPassRecord;
+		this.carById = carById;
+		this.time = time;
+		this.door = door;
+	}
+
+	@GenericGenerator(name = "generator", strategy = "foreign", parameters = @Parameter(name = "property", value = "carById"))
 	@Id
 	@GeneratedValue(generator = "generator")
 
@@ -49,14 +59,24 @@ public class CarPassRecord implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@OneToOne(fetch = FetchType.LAZY)
-	@PrimaryKeyJoinColumn
-	public Car getCar() {
-		return this.car;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "carPassRecord")
+	public Car getCarByCarPassRecord() {
+		return this.carByCarPassRecord;
 	}
 
-	public void setCar(Car car) {
-		this.car = car;
+	public void setCarByCarPassRecord(Car carByCarPassRecord) {
+		this.carByCarPassRecord = carByCarPassRecord;
+	}
+
+	@OneToOne(fetch = FetchType.LAZY)
+	@PrimaryKeyJoinColumn
+	public Car getCarById() {
+		return this.carById;
+	}
+
+	public void setCarById(Car carById) {
+		this.carById = carById;
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)

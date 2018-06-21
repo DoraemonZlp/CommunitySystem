@@ -1,16 +1,19 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2018-5-31 11:25:56 by Hibernate Tools 3.5.0.Final -->
+<!-- Generated 2018-6-21 11:26:05 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="twt.model.CarPassRecord" table="CarPassRecord" catalog="CommunitySystem">
         <id name="id" type="int">
             <column name="id" />
             <generator class="foreign">
-                <param name="property">car</param>
+                <param name="property">carById</param>
             </generator>
         </id>
-        <one-to-one name="car" class="twt.model.Car" constrained="true"></one-to-one>
+        <many-to-one name="carByCarPassRecord" class="twt.model.Car" fetch="select">
+            <column name="carPassRecord" />
+        </many-to-one>
+        <one-to-one name="carById" class="twt.model.Car" constrained="true"></one-to-one>
         <property name="time" type="timestamp">
             <column name="time" length="19" not-null="true" />
         </property>

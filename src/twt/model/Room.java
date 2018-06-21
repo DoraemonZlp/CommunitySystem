@@ -1,5 +1,5 @@
 package twt.model;
-// Generated 2018-5-31 11:25:56 by Hibernate Tools 3.5.0.Final
+// Generated 2018-6-21 11:26:04 by Hibernate Tools 3.5.0.Final
 
 import java.util.HashSet;
 import java.util.Set;

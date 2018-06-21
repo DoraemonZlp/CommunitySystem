@@ -16,41 +16,65 @@ public class RepairDao implements IRepair {
 
 	@Override
 	public int PublishRepair(Repair re) {
+		int r=0;
 		MyGlobal.begintrans();
-		MyGlobal.session.save(re);
-		MyGlobal.commit();
-		return re.getId();
+		try {
+			MyGlobal.session.save(re);
+			MyGlobal.commit();
+			r=re.getId();
+		}catch (Exception e) {
+			MyGlobal.rollback();
+		}
+		return r;
 	}
 
 	@Override
 	public int UpdateRepair(int id, Repair re) {
+		int r=0;
 		MyGlobal.begintrans();
-		Repair or=(Repair) MyGlobal.session.get(Repair.class, id);
-		//System.out.println(oan.getContent());
-		or.setContent(re.getContent());
-		or.setIsfixed(re.getIsfixed());
-		or.setRoom(re.getRoom());
-		MyGlobal.session.update(or);
-		MyGlobal.commit();
-		return 0;
+		try {
+			Repair or=(Repair) MyGlobal.session.get(Repair.class, id);
+			//System.out.println(oan.getContent());
+			or.setContent(re.getContent());
+			or.setIsfixed(re.getIsfixed());
+			or.setRoom(re.getRoom());
+			MyGlobal.session.update(or);
+			MyGlobal.commit();
+			r=1;
+		}catch (Exception e) {
+			MyGlobal.rollback();
+		}
+		return r;
 	}
 
 	@Override
 	public int DeleteRepair(int id) {
+		int r=0;
 		MyGlobal.begintrans();
-		MyGlobal.session.delete(MyGlobal.session.get(Repair.class, id));
-		MyGlobal.commit();
-		return 0;
+		try {
+			MyGlobal.session.delete(MyGlobal.session.get(Repair.class, id));
+			MyGlobal.commit();
+			r=1;
+		}catch (Exception e) {
+			MyGlobal.rollback();
+		}
+		return r;
 	}
 
 	@Override
 	public int RepairRepair(int id) {
+		int r=0;
 		MyGlobal.begintrans();
-		Repair or=(Repair) MyGlobal.session.get(Repair.class, id);
-		or.setIsfixed(1);
-		MyGlobal.session.update(or);
-		MyGlobal.commit();
-		return 0;
+		try {
+			Repair or=(Repair) MyGlobal.session.get(Repair.class, id);
+			or.setIsfixed(1);
+			MyGlobal.session.update(or);
+			MyGlobal.commit();
+			r=1;
+		}catch (Exception e) {
+			MyGlobal.rollback();
+		}
+		return r;
 	}
 
 	@Override

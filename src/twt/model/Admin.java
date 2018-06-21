@@ -1,5 +1,5 @@
 package twt.model;
-// Generated 2018-5-31 11:25:56 by Hibernate Tools 3.5.0.Final
+// Generated 2018-6-21 11:26:04 by Hibernate Tools 3.5.0.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -23,6 +23,7 @@ public class Admin implements java.io.Serializable {
 	private String name;
 	private String phone;
 	private Set<Announcement> announcements = new HashSet<Announcement>(0);
+	private Set<CommentReply> commentReplies = new HashSet<CommentReply>(0);
 
 	public Admin() {
 	}
@@ -32,10 +33,11 @@ public class Admin implements java.io.Serializable {
 		this.phone = phone;
 	}
 
-	public Admin(String name, String phone, Set<Announcement> announcements) {
+	public Admin(String name, String phone, Set<Announcement> announcements, Set<CommentReply> commentReplies) {
 		this.name = name;
 		this.phone = phone;
 		this.announcements = announcements;
+		this.commentReplies = commentReplies;
 	}
 
 	@Id
@@ -75,6 +77,15 @@ public class Admin implements java.io.Serializable {
 
 	public void setAnnouncements(Set<Announcement> announcements) {
 		this.announcements = announcements;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "admin")
+	public Set<CommentReply> getCommentReplies() {
+		return this.commentReplies;
+	}
+
+	public void setCommentReplies(Set<CommentReply> commentReplies) {
+		this.commentReplies = commentReplies;
 	}
 
 }

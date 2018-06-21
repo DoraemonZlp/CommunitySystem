@@ -1,6 +1,8 @@
 package twt.model;
-// Generated 2018-5-31 11:25:56 by Hibernate Tools 3.5.0.Final
+// Generated 2018-6-21 11:26:04 by Hibernate Tools 3.5.0.Final
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +11,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -22,7 +25,8 @@ public class Car implements java.io.Serializable {
 	private Integer id;
 	private Household household;
 	private String number;
-	private CarPassRecord carPassRecord;
+	private Set<CarPassRecord> carPassRecordsForCarPassRecord = new HashSet<CarPassRecord>(0);
+	private CarPassRecord carPassRecordById;
 
 	public Car() {
 	}
@@ -32,10 +36,12 @@ public class Car implements java.io.Serializable {
 		this.number = number;
 	}
 
-	public Car(Household household, String number, CarPassRecord carPassRecord) {
+	public Car(Household household, String number, Set<CarPassRecord> carPassRecordsForCarPassRecord,
+			CarPassRecord carPassRecordById) {
 		this.household = household;
 		this.number = number;
-		this.carPassRecord = carPassRecord;
+		this.carPassRecordsForCarPassRecord = carPassRecordsForCarPassRecord;
+		this.carPassRecordById = carPassRecordById;
 	}
 
 	@Id
@@ -69,13 +75,22 @@ public class Car implements java.io.Serializable {
 		this.number = number;
 	}
 
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "car")
-	public CarPassRecord getCarPassRecord() {
-		return this.carPassRecord;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "carByCarPassRecord")
+	public Set<CarPassRecord> getCarPassRecordsForCarPassRecord() {
+		return this.carPassRecordsForCarPassRecord;
 	}
 
-	public void setCarPassRecord(CarPassRecord carPassRecord) {
-		this.carPassRecord = carPassRecord;
+	public void setCarPassRecordsForCarPassRecord(Set<CarPassRecord> carPassRecordsForCarPassRecord) {
+		this.carPassRecordsForCarPassRecord = carPassRecordsForCarPassRecord;
+	}
+
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "carById")
+	public CarPassRecord getCarPassRecordById() {
+		return this.carPassRecordById;
+	}
+
+	public void setCarPassRecordById(CarPassRecord carPassRecordById) {
+		this.carPassRecordById = carPassRecordById;
 	}
 
 }
