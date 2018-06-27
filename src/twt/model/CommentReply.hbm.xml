@@ -10,13 +10,15 @@
                 <param name="property">comment</param>
             </generator>
         </id>
-        <one-to-one name="comment" class="twt.model.Comment" constrained="true"></one-to-one>
+        <many-to-one name="comment" class="twt.model.Comment" fetch="select" >
+             <column name="commentid" not-null="true" />
+        </many-to-one>  <!--  constrained="true" -->
         <many-to-one name="admin" class="twt.model.Admin" fetch="select">
             <column name="admin" not-null="true" />
         </many-to-one>
-        <property name="commentid" type="int">
+       <!--  <property name="commentid" type="int">
             <column name="commentid" not-null="true" />
-        </property>
+        </property> -->
         <property name="time" type="timestamp">
             <column name="time" length="19" not-null="true" />
         </property>

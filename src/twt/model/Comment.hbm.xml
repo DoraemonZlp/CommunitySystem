@@ -17,6 +17,7 @@
         <property name="content" type="string">
             <column name="content" length="2048" not-null="true" />
         </property>
-        <one-to-one name="commentReply" class="twt.model.CommentReply"></one-to-one>
+      <!--   <one-to-one name="commentReply" class="twt.model.CommentReply"></one-to-one> -->
+     
     </class>
 </hibernate-mapping>

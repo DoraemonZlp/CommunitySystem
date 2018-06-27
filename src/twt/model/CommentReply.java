@@ -27,7 +27,7 @@ public class CommentReply implements java.io.Serializable {
 	private int id;
 	private Comment comment;
 	private Admin admin;
-	private int commentid;
+	/*private int commentid;*/
 	private Date time;
 	private String content;
 	private int household;
@@ -35,10 +35,10 @@ public class CommentReply implements java.io.Serializable {
 	public CommentReply() {
 	}
 
-	public CommentReply(Comment comment, Admin admin, int commentid, Date time, String content, int household) {
+	public CommentReply(Comment comment, Admin admin, Date time, String content, int household) {
 		this.comment = comment;
 		this.admin = admin;
-		this.commentid = commentid;
+	/*	this.commentid = commentid;     , int commentid*/
 		this.time = time;
 		this.content = content;
 		this.household = household;
@@ -77,14 +77,14 @@ public class CommentReply implements java.io.Serializable {
 		this.admin = admin;
 	}
 
-	@Column(name = "commentid", nullable = false)
+	/*@Column(name = "commentid", nullable = false)
 	public int getCommentid() {
 		return this.commentid;
 	}
 
 	public void setCommentid(int commentid) {
 		this.commentid = commentid;
-	}
+	}*/
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "time", nullable = false, length = 19)
